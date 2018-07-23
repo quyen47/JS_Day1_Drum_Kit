@@ -8,17 +8,44 @@
     <title>Document</title>
 </head>
 <body>
-    <div data-key = "68" class="key">
-        <kdb>D</kdb>
-        <span class="sound">Kick</span>
-    </div>
-    <div data-key = "70" class="key">
-        <kdb>F</kdb>
-        <span class="sound">Clap</span>
+    <div class="keys">
+        <div data-key = "83" class="key">
+            <kdb class="kdb">S</kdb><br>
+            <span class="sound">KICK</span>
+        </div>
+        <div data-key = "68" class="key">
+            <kdb class="kdb">D</kdb><br>
+            <span class="sound">CLAP</span>
+        </div>
+        <div data-key = "70" class="key">
+            <kdb class="kdb">F</kdb><br>
+            <span class="sound">BOOM</span>
+        </div>
+        <div data-key = "71" class="key">
+            <kdb class="kdb">G</kdb><br>
+            <span class="sound">RIDE</span>
+        </div>
+        <div data-key = "72" class="key">
+            <kdb class="kdb">H</kdb><br>
+            <span class="sound">KICK</span>
+        </div>
+        <div data-key = "74" class="key">
+            <kdb class="kdb">J</kdb><br>
+            <span class="sound">CLAP</span>
+        </div>
+        <div data-key = "75" class="key">
+            <kdb class="kdb">K</kdb><br>
+            <span class="sound">BOOM</span>
+        </div>
     </div>
 
-    <audio data-key="68" src="Electric Drill 03.wav"></audio>
-    <audio data-key="70" src="Cable Tie 05.wav"></audio>
+    <audio data-key="83" src="Bass_drum.ogg"></audio>
+    <audio data-key="68" src="Crash_cymbal.ogg"></audio>
+    <audio data-key="70" src="Hi_hat_closed.ogg"></audio>
+    <audio data-key="71" src="Ride_cymbal.ogg"></audio>
+    <audio data-key="72" src="Rock_beat_hi_hat.ogg"></audio>
+    <audio data-key="74" src="Snare_drum_unmuffled.ogg"></audio>
+    <audio data-key="75" src="Tom_drum_8_inch.ogg"></audio>
 
     <script>
         window.addEventListener('keydown' , function (e) {
@@ -30,6 +57,12 @@
             audio.play();
             key.classList.add('playing');
         });
+        function removeTransition(e) {
+            if(e.propertyName !== 'transform') return;
+            this.classList.remove('playing');
+        }
+        const keys = document.querySelectorAll('.key');
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
     </script>
 </body>
 </html>
