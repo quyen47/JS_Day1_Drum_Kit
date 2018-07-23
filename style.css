@@ -1,0 +1,24 @@
+body {
+    background-image: url("EDM-Wallpaper-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+span {
+    color: white;
+}
+.key {
+    border: 4px solid black;
+    margin: 1rem;
+    font-size: 1rem;
+    padding: 1rem .5rem;
+    width: 100px;
+    transition: all 1s;
+}
+kbd {
+    display: block;
+    font-size: 40px;
+}
+.playing {
+    border-color: bisque;
+    transform: scale(1.2);
+}
